@@ -33,6 +33,15 @@ class MarsRoverTest {
         assertEquals(actualPosition, finalPosition);
     }
 
+    @Test
+    void shouldMoveInTheSameDirectionWhenNoDirectionInstructionIsGiven() {
+        MarsRover marsRover = new MarsRover();
+        String actualPosition = "0 4 N";
+
+        String finalPosition = marsRover.move(0, 0, 'N', "MMMM");
+
+        assertEquals(actualPosition, finalPosition);
+    }
 
     @Test
     public void acceptance_test_2() {
