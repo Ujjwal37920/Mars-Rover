@@ -1,17 +1,13 @@
 package mars.rover;
 
 import org.junit.jupiter.api.Test;
-
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MarsRoverTest {
 
-    @Test
-    public void
-    acceptance_test_1() {
-        String newPosition = MarsRover.move(1, 2, 'N', "LMLMLMLMM");
-        assertEquals("1 3 N", newPosition);
-    }
+
 
     @Test
     void shouldReturnInitialPositionWhenNoCommandIsGiven() {
@@ -23,14 +19,18 @@ class MarsRoverTest {
         assertEquals(actualPosition, finalPosition);
     }
 
-    @Test
-    void shouldFaceEastWhenRightInstructionIsGiven() {
+    @ParameterizedTest
+    @CsvSource({
+            "0 0 N, 0 0 E",
+            "0 0 E, 0 0 S"
+    })
+
+    void shouldFaceEastWhenRightInstructionIsGiven(String input,String output) {
         MarsRover marsRover = new MarsRover();
-        String actualPosition = "0 0 E";
 
-        String finalPosition = marsRover.move(0,0,'N',"R");
+       String finalPosition = marsRover.move(Character.getNumericValue(input.charAt(0)),Character.getNumericValue(input.charAt(2)),input.charAt(4),"R");
 
-        assertEquals(actualPosition, finalPosition);
+        assertEquals(output, finalPosition);
     }
 
     @Test
@@ -44,9 +44,9 @@ class MarsRoverTest {
     }
 
     @Test
-    public void acceptance_test_2() {
-        String newPosition = MarsRover.move(3, 3, 'E', "MMRMMRMRRM");
-        assertEquals("5 1 E", newPosition);
+    void shouldNotCrossTheLongitudinalBoundaryOfPlateau() {
     }
+
+
 
 }
