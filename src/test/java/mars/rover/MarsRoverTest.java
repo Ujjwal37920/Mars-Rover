@@ -46,9 +46,7 @@ class MarsRoverTest {
         assertEquals(actualPosition, finalPosition);
     }
 
-    @Test
-    void shouldNotCrossTheLongitudinalBoundaryOfPlateau() {
-    }
+
 
 
 
