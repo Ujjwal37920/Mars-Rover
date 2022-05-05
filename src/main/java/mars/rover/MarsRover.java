@@ -2,48 +2,61 @@ package mars.rover;
 
 public class MarsRover {
 
+    private char direction;
+    private int xCoordinate;
+    private int yCoordinate;
 
-    public String move(int x, int y, char direction, String instructions) {
+    public void move(int x, int y, char dir, String instructions) {
 
+        this.xCoordinate = x;
+        this.yCoordinate = y;
+        this.direction = dir;
 
         if (!instructions.isEmpty()) {
-            char instruction = instructions.charAt(0);
-            if (instruction == 'L') {
-                if (direction == 'N') {
-                    return move(x, y, 'W', instructions.substring(1, instructions.length()));
-                } else if (direction == 'W') {
-                    return move(x, y, 'S', instructions.substring(1, instructions.length()));
-                } else if (direction == 'S') {
-                    return move(x, y, 'E', instructions.substring(1, instructions.length()));
-                } else if (direction == 'E') {
-                    return move(x, y, 'N', instructions.substring(1, instructions.length()));
+            for (char instruction : instructions.toCharArray()) {
+                if (instruction == 'L') {
+                    if (direction == 'N') {
+                        direction = 'W';
+                    } else if (direction == 'W') {
+                        direction = 'S';
+                    } else if (direction == 'S') {
+                        direction = 'E';
+                    } else if (direction == 'E') {
+                        direction = 'N';
+                    }
+                } else if (instruction == 'R') {
+                    if (direction == 'N') {
+                        direction = 'E';
+                    } else if (direction == 'W') {
+                        direction = 'N';
+                    } else if (direction == 'S') {
+                        direction = 'W';
+                    } else if (direction == 'E') {
+                        direction = 'S';
+                    }
+                } else if (instruction == 'M') {
+                    if (direction == 'N') {
+                        yCoordinate += 1;
+                    } else if (direction == 'S') {
+                        yCoordinate -= 1;
+                    } else if (direction == 'W') {
+                        xCoordinate -= 1;
+                    } else if (direction == 'E') {
+                        xCoordinate += 1;
+                    }
                 }
-                //left(x,y,direction, instructions);
-            } else if (instruction == 'R') {
-                if (direction == 'N') {
-                    return move(x, y, 'E', instructions.substring(1, instructions.length()));
-                } else if (direction == 'W') {
-                    return move(x, y, 'N', instructions.substring(1, instructions.length()));
-                } else if (direction == 'S') {
-                    return move(x, y, 'W', instructions.substring(1, instructions.length()));
-                } else if (direction == 'E') {
-                    return move(x, y, 'S', instructions.substring(1, instructions.length()));
-                }
-                //right(x,y,direction, instructions);
-            } else if (instruction == 'M') {
-                if (direction == 'N') {
-                    return move(x, y + 1, 'N', instructions.substring(1, instructions.length()));
-                } else if (direction == 'S') {
-                    return move(x, y - 1, 'S', instructions.substring(1, instructions.length()));
-                } else if (direction == 'W') {
-                    return move(x - 1, y, 'W', instructions.substring(1, instructions.length()));
-                } else if (direction == 'E') {
-                    return move(x + 1, y, 'E', instructions.substring(1, instructions.length()));
-                }
+
             }
+
+        //    return x + " " + y + " " + direction;
         }
-        return x + " " + y + " " + direction;
     }
+
+    public String getCurrentPosition(){
+        return xCoordinate + " " + yCoordinate + " " + direction;
+    }
+
+
 
 
 }

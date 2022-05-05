@@ -14,8 +14,9 @@ class MarsRoverTest {
         MarsRover marsRover=new MarsRover();
         String actualPosition = "0 0 N";
 
-        String finalPosition = marsRover.move(0,0, 'N',"");
+        marsRover.move(0,0, 'N',"");
 
+        String finalPosition = marsRover.getCurrentPosition();
         assertEquals(actualPosition, finalPosition);
     }
 
@@ -28,8 +29,9 @@ class MarsRoverTest {
     void shouldFaceEastWhenRightInstructionIsGiven(String input,String output) {
         MarsRover marsRover = new MarsRover();
 
-       String finalPosition = marsRover.move(Character.getNumericValue(input.charAt(0)),Character.getNumericValue(input.charAt(2)),input.charAt(4),"R");
+       marsRover.move(Character.getNumericValue(input.charAt(0)),Character.getNumericValue(input.charAt(2)),input.charAt(4),"R");
 
+        String finalPosition = marsRover.getCurrentPosition();
         assertEquals(output, finalPosition);
     }
 
@@ -38,8 +40,9 @@ class MarsRoverTest {
         MarsRover marsRover = new MarsRover();
         String actualPosition = "0 4 N";
 
-        String finalPosition = marsRover.move(0, 0, 'N', "MMMM");
+        marsRover.move(0, 0, 'N', "MMMM");
 
+        String finalPosition = marsRover.getCurrentPosition();
         assertEquals(actualPosition, finalPosition);
     }
 
