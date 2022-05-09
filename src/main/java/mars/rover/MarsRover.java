@@ -2,14 +2,12 @@ package mars.rover;
 
 public class MarsRover {
 
-    private int xCoordinate;
-    private int yCoordinate;
+    private Coordinate coordinate ;
     Direction d = Direction.NORTH;
 
     public void move(int x, int y, char dir, String instructions) {
+        coordinate = new Coordinate(x,y);
 
-        this.xCoordinate = x;
-        this.yCoordinate = y;
         d = d.currentDirection(dir);
 
         if (!instructions.isEmpty()) {
@@ -24,13 +22,13 @@ public class MarsRover {
                 }
                 else if (instruction == 'M') {
                     if (d.value() == 'N') {
-                        yCoordinate += 1;
+                        coordinate.moveY(true);
                     } else if (d.value() == 'S') {
-                        yCoordinate -= 1;
+                        coordinate.moveY(false);
                     } else if (d.value() == 'W') {
-                        xCoordinate -= 1;
+                        coordinate.moveX(false);
                     } else if (d.value() == 'E') {
-                        xCoordinate += 1;
+                        coordinate.moveX(true);
                     }
                 }
 
@@ -40,7 +38,7 @@ public class MarsRover {
     }
 
     public String getCurrentPosition(){
-        return xCoordinate + " " + yCoordinate + " " + d.value();
+        return coordinate.x()  + " " + coordinate.y() + " " + d.value();
     }
 
 

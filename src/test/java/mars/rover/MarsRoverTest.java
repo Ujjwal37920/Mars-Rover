@@ -26,7 +26,7 @@ class MarsRoverTest {
             "0 0 E, 0 0 S"
     })
 
-    void shouldFaceEastWhenRightInstructionIsGiven(String input,String output) {
+    void shouldCHangeDirectionWhenRightInstructionIsGiven(String input,String output) {
         MarsRover marsRover = new MarsRover();
 
        marsRover.move(Character.getNumericValue(input.charAt(0)),Character.getNumericValue(input.charAt(2)),input.charAt(4),"R");
@@ -46,8 +46,12 @@ class MarsRoverTest {
         assertEquals(actualPosition, finalPosition);
     }
 
+    @Test
+    void shouldMoveToCoordinates2And4FromInitialPosition() {
+        MarsRover marsRover = new MarsRover();
+        String actualPosition = "2 4 E";
+        String instruction = "MMRMMMM";
 
-
-
-
+        marsRover.move(2,4,'N',instruction);
+    }
 }

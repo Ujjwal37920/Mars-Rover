@@ -39,7 +39,6 @@ public enum Direction {
 
     public Direction currentDirection(char dir) {
         for(Direction direction:values()){
-            System.out.println(direction.value);
             if(  dir == direction.value){
                 return direction;
             }
