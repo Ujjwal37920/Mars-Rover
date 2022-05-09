@@ -18,18 +18,18 @@ public class Coordinate {
 
     public void moveX(boolean bool){
         if(bool){
-            this.xCoordinate +=1;
+            this.xCoordinate ++;
         }
         else{
-            this.xCoordinate-=1;
+            this.xCoordinate--;
         }
     }
      public void moveY(boolean bool){
          if(bool){
-             this.yCoordinate +=1;
+             this.yCoordinate ++;
          }
          else{
-             this.yCoordinate-=1;
+             this.yCoordinate--;
          }
      }
 }

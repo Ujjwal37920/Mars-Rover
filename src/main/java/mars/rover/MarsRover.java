@@ -30,8 +30,9 @@ public class MarsRover {
                     } else if (d.value() == 'E') {
                         coordinate.moveX(true);
                     }
-                }
 
+                }
+                System.out.println(coordinate.x() + " "+ coordinate.y());
             }
 
         }

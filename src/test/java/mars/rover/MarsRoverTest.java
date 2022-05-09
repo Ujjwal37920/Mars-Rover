@@ -22,14 +22,14 @@ class MarsRoverTest {
 
     @ParameterizedTest
     @CsvSource({
-            "0 0 N, 0 0 E",
-            "0 0 E, 0 0 S"
+            "0 0 N, 0 0 S",
+            "0 0 E, 0 0 W"
     })
 
     void shouldCHangeDirectionWhenRightInstructionIsGiven(String input,String output) {
         MarsRover marsRover = new MarsRover();
 
-       marsRover.move(Character.getNumericValue(input.charAt(0)),Character.getNumericValue(input.charAt(2)),input.charAt(4),"R");
+       marsRover.move(Character.getNumericValue(input.charAt(0)),Character.getNumericValue(input.charAt(2)),input.charAt(4),"RR");
 
         String finalPosition = marsRover.getCurrentPosition();
         assertEquals(output, finalPosition);
@@ -49,9 +49,12 @@ class MarsRoverTest {
     @Test
     void shouldMoveToCoordinates2And4FromInitialPosition() {
         MarsRover marsRover = new MarsRover();
-        String actualPosition = "2 4 E";
+        String actualPosition = "4 2 E";
         String instruction = "MMRMMMM";
 
-        marsRover.move(2,4,'N',instruction);
+        marsRover.move(0,0,'N',instruction);
+
+        String finalPosition = marsRover.getCurrentPosition();
+        assertEquals(actualPosition, finalPosition);
     }
 }
