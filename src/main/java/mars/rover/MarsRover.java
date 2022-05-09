@@ -3,7 +3,7 @@ package mars.rover;
 public class MarsRover {
 
     private Coordinate coordinate ;
-    Direction d = Direction.NORTH;
+    private Direction d = Direction.NORTH;
 
     public void move(int x, int y, char dir, String instructions) {
         coordinate = new Coordinate(x,y);
@@ -21,20 +21,24 @@ public class MarsRover {
 
                 }
                 else if (instruction == 'M') {
-                    if (d.value() == 'N') {
-                        coordinate.moveY(true);
-                    } else if (d.value() == 'S') {
-                        coordinate.moveY(false);
-                    } else if (d.value() == 'W') {
-                        coordinate.moveX(false);
-                    } else if (d.value() == 'E') {
-                        coordinate.moveX(true);
-                    }
+                    startMoving();
 
                 }
                 System.out.println(coordinate.x() + " "+ coordinate.y());
             }
 
+        }
+    }
+
+    private void startMoving() {
+        if (d.value() == 'N') {
+            coordinate.moveY(true);
+        } else if (d.value() == 'S') {
+            coordinate.moveY(false);
+        } else if (d.value() == 'W') {
+            coordinate.moveX(false);
+        } else if (d.value() == 'E') {
+            coordinate.moveX(true);
         }
     }
 
