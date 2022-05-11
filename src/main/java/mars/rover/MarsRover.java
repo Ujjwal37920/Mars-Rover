@@ -18,7 +18,6 @@ public class MarsRover {
 
                 } else if (instruction == 'R') {
                     d = d.rotateRight();
-
                 }
                 else if (instruction == 'M') {
                     startMoving();
