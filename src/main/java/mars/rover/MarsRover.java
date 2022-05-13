@@ -28,7 +28,7 @@ public class MarsRover {
                 }
                 else if (instruction == 'M') {
 
-                    if(coordinate.x()>=maxLength || coordinate.x()<0  || coordinate.y() >= maxHeight || coordinate.y() <0){
+                    if(coordinate.xCoordinate()>=maxLength || coordinate.xCoordinate()<0  || coordinate.yCoordinate() >= maxHeight || coordinate.yCoordinate() <0){
                         throw new ExceedingPlateauBoundaryException("Cannot move out of the plateau boundary");
                     }
                     else {
@@ -36,7 +36,7 @@ public class MarsRover {
                     }
 
                 }
-                System.out.println(coordinate.x() + " "+ coordinate.y());
+                System.out.println(coordinate.xCoordinate() + " "+ coordinate.yCoordinate());
             }
 
         }
@@ -58,7 +58,7 @@ public class MarsRover {
     }
 
     public String getCurrentPosition(){
-        return coordinate.x()  + " " + coordinate.y() + " " + d.value();
+        return coordinate.xCoordinate()  + " " + coordinate.yCoordinate() + " " + d.value();
     }
 
 

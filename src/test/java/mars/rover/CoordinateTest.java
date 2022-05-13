@@ -12,7 +12,7 @@ public class CoordinateTest {
         coordinate.moveX(true);
         coordinate.moveX(true);
 
-        int actualXCoordinatePosition = coordinate.x();
+        int actualXCoordinatePosition = coordinate.xCoordinate();
         assertEquals(actualXCoordinatePosition
         , finalXCoordinatePosition);
     }
@@ -25,7 +25,7 @@ public class CoordinateTest {
         coordinate.moveY(true);
         coordinate.moveY(true);
 
-        int actualYCoordinatePosition = coordinate.x();
+        int actualYCoordinatePosition = coordinate.xCoordinate();
         assertEquals(actualYCoordinatePosition
                 , finalYCoordinatePosition);
     }
@@ -39,7 +39,7 @@ public class CoordinateTest {
         coordinate.moveX(false);
         coordinate.moveX(false);
 
-        int actualXCoordinatePosition = coordinate.x();
+        int actualXCoordinatePosition = coordinate.xCoordinate();
         assertEquals(actualXCoordinatePosition
                 , finalXCoordinatePosition);
     }
@@ -52,7 +52,7 @@ public class CoordinateTest {
         coordinate.moveY(false);
         coordinate.moveY(false);
 
-        int actualXCoordinatePosition = coordinate.y();
+        int actualXCoordinatePosition = coordinate.yCoordinate();
         assertEquals(actualXCoordinatePosition
                 , finalXCoordinatePosition);
     }

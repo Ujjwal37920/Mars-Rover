@@ -9,10 +9,10 @@ public class Coordinate {
         this.yCoordinate = yCoordinate;
     }
 
-    public int x(){
+    public int xCoordinate(){
         return this.xCoordinate;
     }
-    public int y(){
+    public int yCoordinate(){
         return this.yCoordinate;
     }
 
