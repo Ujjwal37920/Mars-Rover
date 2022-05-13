@@ -60,27 +60,27 @@ class MarsRoverTest {
     }
 
     @Test
-    void shouldReturnExceedingPlateauBoundaryExceotionWhenExceedingMaxHeightMoveCommandIsGiven() {
+    void shouldReturnExceedingPlateauBoundaryExceptionWhenExceedingMaxHeightMoveCommandIsGiven() {
         MarsRover marsRover = new MarsRover(5, 5);
 
         assertThrows(ExceedingPlateauBoundaryException.class, () -> marsRover.move(0,0,'N',"MMMMMMM"));
     }
 
     @Test
-    void shouldReturnExceedingPlateauBoundaryExceotionWhenExceedingMinHeightMoveCommandIsGiven() {
+    void shouldReturnExceedingPlateauBoundaryExceptionWhenExceedingMinHeightMoveCommandIsGiven() {
         MarsRover marsRover = new MarsRover(5, 5);
 
         assertThrows(ExceedingPlateauBoundaryException.class, () -> marsRover.move(0,0,'S',"MM"));
     }
     @Test
-    void shouldReturnExceedingPlateauBoundaryExceotionWhenExceedingMaxLengthMoveCommandIsGiven() {
+    void shouldReturnExceedingPlateauBoundaryExceptionWhenExceedingMaxLengthMoveCommandIsGiven() {
         MarsRover marsRover = new MarsRover(5, 5);
 
         assertThrows(ExceedingPlateauBoundaryException.class, () -> marsRover.move(0,0,'N',"MMRMMMMMM"));
     }
 
     @Test
-    void shouldReturnExceedingPlateauBoundaryExceotionWhenExceedingMinLengthMoveCommandIsGiven() {
+    void shouldReturnExceedingPlateauBoundaryExceptionWhenExceedingMinLengthMoveCommandIsGiven() {
         MarsRover marsRover = new MarsRover(5, 5);
 
         assertThrows(ExceedingPlateauBoundaryException.class, () -> marsRover.move(0,0,'N',"MMLMMMMMM"));
