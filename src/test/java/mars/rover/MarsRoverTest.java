@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MarsRoverTest {
 
@@ -56,6 +57,33 @@ class MarsRoverTest {
 
         String finalPosition = marsRover.getCurrentPosition();
         assertEquals(actualPosition, finalPosition);
+    }
+
+    @Test
+    void shouldReturnExceedingPlateauBoundaryExceotionWhenExceedingMaxHeightMoveCommandIsGiven() {
+        MarsRover marsRover = new MarsRover(5, 5);
+
+        assertThrows(ExceedingPlateauBoundaryException.class, () -> marsRover.move(0,0,'N',"MMMMMMM"));
+    }
+
+    @Test
+    void shouldReturnExceedingPlateauBoundaryExceotionWhenExceedingMinHeightMoveCommandIsGiven() {
+        MarsRover marsRover = new MarsRover(5, 5);
+
+        assertThrows(ExceedingPlateauBoundaryException.class, () -> marsRover.move(0,0,'S',"MM"));
+    }
+    @Test
+    void shouldReturnExceedingPlateauBoundaryExceotionWhenExceedingMaxLengthMoveCommandIsGiven() {
+        MarsRover marsRover = new MarsRover(5, 5);
+
+        assertThrows(ExceedingPlateauBoundaryException.class, () -> marsRover.move(0,0,'N',"MMRMMMMMM"));
+    }
+
+    @Test
+    void shouldReturnExceedingPlateauBoundaryExceotionWhenExceedingMinLengthMoveCommandIsGiven() {
+        MarsRover marsRover = new MarsRover(5, 5);
+
+        assertThrows(ExceedingPlateauBoundaryException.class, () -> marsRover.move(0,0,'N',"MMLMMMMMM"));
     }
 
 
