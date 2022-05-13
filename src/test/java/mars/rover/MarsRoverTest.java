@@ -10,8 +10,8 @@ class MarsRoverTest {
 
 
     @Test
-    void shouldReturnInitialPositionWhenNoCommandIsGiven() {
-        MarsRover marsRover=new MarsRover();
+    void shouldReturnInitialPositionWhenNoCommandIsGiven() throws ExceedingPlateauBoundaryException {
+        MarsRover marsRover=new MarsRover(5,5);
         String actualPosition = "0 0 N";
 
         marsRover.move(0,0, 'N',"");
@@ -26,8 +26,8 @@ class MarsRoverTest {
             "0 0 E, 0 0 W"
     })
 
-    void shouldCHangeDirectionWhenRightInstructionIsGiven(String input,String output) {
-        MarsRover marsRover = new MarsRover();
+    void shouldChangeDirectionWhenRightInstructionIsGiven(String input,String output) throws ExceedingPlateauBoundaryException {
+        MarsRover marsRover = new MarsRover(5,5);
 
        marsRover.move(Character.getNumericValue(input.charAt(0)),Character.getNumericValue(input.charAt(2)),input.charAt(4),"RR");
 
@@ -36,8 +36,8 @@ class MarsRoverTest {
     }
 
     @Test
-    void shouldMoveInTheSameDirectionWhenNoDirectionInstructionIsGiven() {
-        MarsRover marsRover = new MarsRover();
+    void shouldMoveInTheSameDirectionWhenNoDirectionInstructionIsGiven() throws ExceedingPlateauBoundaryException {
+        MarsRover marsRover = new MarsRover(5,5);
         String actualPosition = "0 4 N";
 
         marsRover.move(0, 0, 'N', "MMMM");
@@ -47,8 +47,8 @@ class MarsRoverTest {
     }
 
     @Test
-    void shouldMoveToCoordinates2And4FromInitialPosition() {
-        MarsRover marsRover = new MarsRover();
+    void shouldMoveToCoordinates2And4FromInitialPosition() throws ExceedingPlateauBoundaryException {
+        MarsRover marsRover = new MarsRover(5,5);
         String actualPosition = "4 2 E";
         String instruction = "MMRMMMM";
 
@@ -57,4 +57,6 @@ class MarsRoverTest {
         String finalPosition = marsRover.getCurrentPosition();
         assertEquals(actualPosition, finalPosition);
     }
+
+
 }

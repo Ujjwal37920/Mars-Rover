@@ -37,7 +37,7 @@ public enum Direction {
         return value;
     }
 
-    public Direction currentDirection(char dir) {
+    public Direction setCurrentDirection(char dir) {
         for(Direction direction:values()){
             if(  dir == direction.value){
                 return direction;
